@@ -1,0 +1,15 @@
+{
+  // Silence VS Code CSS language server warnings for Tailwind directives
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+
+  // Help Tailwind CSS extension resolve the config
+  "tailwindCSS.experimental.configFile": "tailwind.config.ts",
+
+  // Optional editor niceties
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}
+

@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  /* Ultra-Realistic 8K Visual Effects */
+  .glass-effect-8k {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      0 0 0 1px rgba(255, 255, 255, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .card-3d {
+    transform: translateZ(0);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .card-3d:hover {
+    transform: perspective(1000px) rotateY(5deg) rotateX(2deg) scale(1.02) translateZ(20px);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  
+  .text-shadow-8k {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-high-contrast-white {
+    text-shadow: 
+      2px 2px 0 rgba(0, 0, 0, 0.8), 
+      -2px -2px 0 rgba(0, 0, 0, 0.8), 
+      2px -2px 0 rgba(0, 0, 0, 0.8), 
+      -2px 2px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  /* Financial Industry Specific Effects */
+  .finance-glow {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 
+      0 0 20px rgba(102, 126, 234, 0.4),
+      0 0 40px rgba(102, 126, 234, 0.2),
+      0 0 60px rgba(102, 126, 234, 0.1);
+  }
+
+  .trading-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 
+      0 8px 32px rgba(240, 147, 251, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .investment-card {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 
+      0 8px 32px rgba(79, 172, 254, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .analytics-card {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    box-shadow: 
+      0 8px 32px rgba(67, 233, 123, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer utilities {
+  /* Enhanced Financial Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow-pulse {
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+  
+  .animate-gradient-shift {
+    animation: gradientShift 3s ease infinite;
+  }
+
+  .animate-finance-bounce {
+    animation: financeBounce 3s ease-in-out infinite;
+  }
+
+  .animate-trading-wave {
+    animation: tradingWave 4s ease-in-out infinite;
+  }
+
+  .animate-investment-float {
+    animation: investmentFloat 5s ease-in-out infinite;
+  }
+
+  .animate-chart-rise {
+    animation: chartRise 2s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes financeBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
+}
+
+@keyframes tradingWave {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(2deg) scale(1.01); }
+  75% { transform: rotate(-2deg) scale(1.01); }
+}
+
+@keyframes investmentFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes chartRise {
+  0% { transform: scaleY(0); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
