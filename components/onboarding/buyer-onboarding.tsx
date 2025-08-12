@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Select } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { StepIndicator } from "@/components/ui/step-indicator"
 import { BuyerOnboardingData } from "@/types/onboarding"
@@ -273,9 +273,18 @@ export function BuyerOnboarding() {
           <Select
             value={formData.investmentType}
             onValueChange={(value) => updateFormData("investmentType", value as BuyerOnboardingData["investmentType"])}
-            options={INVESTMENT_TYPES}
-            placeholder="Select investment type"
-          />
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select investment type" />
+            </SelectTrigger>
+            <SelectContent>
+              {INVESTMENT_TYPES.map((type) => (
+                <SelectItem key={type.value} value={type.value}>
+                  {type.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         
         <div className="space-y-2">
@@ -283,9 +292,18 @@ export function BuyerOnboarding() {
           <Select
             value={formData.dealStructure}
             onValueChange={(value) => updateFormData("dealStructure", value as BuyerOnboardingData["dealStructure"])}
-            options={DEAL_STRUCTURES}
-            placeholder="Select deal structure"
-          />
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select deal structure" />
+            </SelectTrigger>
+            <SelectContent>
+              {DEAL_STRUCTURES.map((structure) => (
+                <SelectItem key={structure.value} value={structure.value}>
+                  {structure.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </div>
@@ -296,12 +314,21 @@ export function BuyerOnboarding() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="investmentExperience">Investment Experience *</Label>
-          <Select
-            value={formData.investmentExperience}
-            onValueChange={(value) => updateFormData("investmentExperience", value as BuyerOnboardingData["investmentExperience"])}
-            options={EXPERIENCE_LEVELS}
-            placeholder="Select experience level"
-          />
+                      <Select
+              value={formData.investmentExperience}
+              onValueChange={(value) => updateFormData("investmentExperience", value as BuyerOnboardingData["investmentExperience"])}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select experience level" />
+              </SelectTrigger>
+              <SelectContent>
+                {EXPERIENCE_LEVELS.map((level) => (
+                  <SelectItem key={level.value} value={level.value}>
+                    {level.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
         </div>
         
         <div className="space-y-2">
@@ -381,9 +408,18 @@ export function BuyerOnboarding() {
           <Select
             value={formData.timeline}
             onValueChange={(value) => updateFormData("timeline", value as BuyerOnboardingData["timeline"])}
-            options={TIMELINES}
-            placeholder="Select timeline"
-          />
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select timeline" />
+            </SelectTrigger>
+            <SelectContent>
+              {TIMELINES.map((timeline) => (
+                <SelectItem key={timeline.value} value={timeline.value}>
+                  {timeline.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         
         <div className="space-y-2">
@@ -391,9 +427,18 @@ export function BuyerOnboarding() {
           <Select
             value={formData.managementInvolvement}
             onValueChange={(value) => updateFormData("managementInvolvement", value as BuyerOnboardingData["managementInvolvement"])}
-            options={MANAGEMENT_OPTIONS}
-            placeholder="Select involvement level"
-          />
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select involvement level" />
+            </SelectTrigger>
+            <SelectContent>
+              {MANAGEMENT_OPTIONS.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -430,10 +475,19 @@ export function BuyerOnboarding() {
         <Label htmlFor="dueDiligenceTime">Due Diligence Timeline *</Label>
         <Select
           value={formData.dueDiligenceTime}
-                      onValueChange={(value) => updateFormData("dueDiligenceTime", value as BuyerOnboardingData["dueDiligenceTime"])}
-          options={DUE_DILIGENCE_OPTIONS}
-          placeholder="Select due diligence timeline"
-        />
+          onValueChange={(value) => updateFormData("dueDiligenceTime", value as BuyerOnboardingData["dueDiligenceTime"])}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select due diligence timeline" />
+          </SelectTrigger>
+          <SelectContent>
+            {DUE_DILIGENCE_OPTIONS.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                {option.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
     </div>
   )

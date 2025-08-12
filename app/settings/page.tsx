@@ -582,7 +582,7 @@ export default function SettingsPage() {
                     <CardContent className="space-y-6">
                       <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-lg p-6 text-white">
                         <h3 className="text-xl font-semibold mb-2">Premium Plan</h3>
-                        <p className="text-emerald-100 mb-4">You're currently on our premium plan with full access to all features.</p>
+                        <p className="text-emerald-100 mb-4">You&apos;re currently on our premium plan with full access to all features.</p>
                         <div className="flex items-center gap-4">
                           <Badge className="bg-white/20 text-white">Active</Badge>
                           <span className="text-sm">Next billing: March 15, 2024</span>

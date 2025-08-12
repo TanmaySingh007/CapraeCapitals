@@ -45,7 +45,7 @@ import {
   Plus
 } from "lucide-react"
 
-export default function ProfilePage({ params }: { params: { id: string } }) {
+export default function ProfilePage({ params }: { params: Promise<{ id: string }> }) {
   const [isEditing, setIsEditing] = useState(false)
   const [profile, setProfile] = useState({
     name: "Alexandra Chen",

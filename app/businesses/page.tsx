@@ -49,7 +49,7 @@ export default function BusinessListingsPage() {
 
   // Filter businesses based on search criteria
   useEffect(() => {
-    let filtered = businesses.filter(business => {
+    const filtered = businesses.filter(business => {
       const matchesSearch = business.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            business.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            business.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))

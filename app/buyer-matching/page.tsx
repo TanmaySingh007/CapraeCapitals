@@ -101,7 +101,7 @@ export default function BuyerMatchingPage() {
   const [sortBy, setSortBy] = useState<"budget" | "experience" | "location">("budget")
 
   useEffect(() => {
-    let filtered = buyers.filter(buyer => {
+    const filtered = buyers.filter(buyer => {
       const matchesBudget = buyer.maxBudget >= filters.minBudget[0] && buyer.maxBudget <= filters.maxBudget[0]
       const matchesLocation = !filters.location || buyer.location.toLowerCase().includes(filters.location.toLowerCase())
       const matchesIndustry = !filters.industry || filters.industry === "all" || buyer.preferredIndustries.includes(filters.industry)
@@ -383,7 +383,7 @@ export default function BuyerMatchingPage() {
                 className="w-full"
               />
             </div>
-            <Select value={sortBy} onValueChange={(value) => setSortBy(value as any)}>
+            <Select value={sortBy} onValueChange={(value) => setSortBy(value as "budget" | "experience" | "location")}>
               <SelectTrigger className="w-48">
                 <SelectValue placeholder="Sort by..." />
               </SelectTrigger>
@@ -655,7 +655,7 @@ export default function BuyerMatchingPage() {
                   No More Matches Found
                 </h3>
                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                  We've shown you all the available buyers that match your criteria. 
+                  We&apos;ve shown you all the available buyers that match your criteria. 
                   Try adjusting your filters or check back later for new matches.
                 </p>
                 <div className="flex gap-4 justify-center">

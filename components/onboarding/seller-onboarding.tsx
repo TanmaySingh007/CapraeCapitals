@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Select } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { StepIndicator } from "@/components/ui/step-indicator"
 import { SellerOnboardingData } from "@/types/onboarding"
@@ -110,12 +110,21 @@ export function SellerOnboarding() {
         
         <div className="space-y-2">
           <Label htmlFor="industry">Industry *</Label>
-          <Select
-            value={formData.industry}
-            onValueChange={(value) => updateFormData("industry", value)}
-            options={INDUSTRIES}
-            placeholder="Select industry"
-          />
+                      <Select
+              value={formData.industry}
+              onValueChange={(value) => updateFormData("industry", value)}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select industry" />
+              </SelectTrigger>
+              <SelectContent>
+                {INDUSTRIES.map((industry) => (
+                  <SelectItem key={industry.value} value={industry.value}>
+                    {industry.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
         </div>
       </div>
 
@@ -281,9 +290,18 @@ export function SellerOnboarding() {
           <Select
             value={formData.urgency}
             onValueChange={(value) => updateFormData("urgency", value as SellerOnboardingData["urgency"])}
-            options={URGENCY_OPTIONS}
-            placeholder="Select urgency level"
-          />
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select urgency level" />
+            </SelectTrigger>
+            <SelectContent>
+              {URGENCY_OPTIONS.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
@@ -293,9 +311,18 @@ export function SellerOnboarding() {
           <Select
             value={formData.flexibility}
             onValueChange={(value) => updateFormData("flexibility", value as SellerOnboardingData["flexibility"])}
-            options={FLEXIBILITY_OPTIONS}
-            placeholder="Select flexibility level"
-          />
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Select flexibility level" />
+            </SelectTrigger>
+              <SelectContent>
+                {FLEXIBILITY_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+          </Select>
         </div>
         
         <div className="space-y-2">

@@ -68,7 +68,7 @@ const mockDeals = [
 
 export default function DealPipelinePage() {
   const [deals, setDeals] = useState(mockDeals)
-  const [selectedDeal, setSelectedDeal] = useState<any>(null)
+  const [selectedDeal, setSelectedDeal] = useState<typeof mockDeals[0] | null>(null)
   const [isAddingDeal, setIsAddingDeal] = useState(false)
   const [newDeal, setNewDeal] = useState({
     companyName: "",
@@ -488,7 +488,7 @@ export default function DealPipelinePage() {
               ].map((tab) => (
                 <Button
                   key={tab.id}
-                  onClick={() => setActiveView(tab.id as any)}
+                                      onClick={() => setActiveView(tab.id as "pipeline" | "deals" | "analytics")}
                   variant={activeView === tab.id ? "default" : "ghost"}
                   className={`flex items-center gap-2 ${
                     activeView === tab.id 
